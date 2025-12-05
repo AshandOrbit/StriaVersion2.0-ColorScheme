@@ -3,27 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STRIA Registry — Verified at Source</title>
+    <title>MineralTrace — B2B Marketplace for Verified Minerals</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Blue - STRIA brand */
-            --stria-blue: #1E3A5F;
-            --stria-blue-light: #3D5A80;
-            --stria-blue-bright: #4A7FB0;
-            --stria-blue-dark: #152A45;
-            --stria-glow: rgba(61, 90, 128, 0.5);
-            --stria-dim: rgba(30, 58, 95, 0.15);
-            
-            /* Golds */
+            --emerald: #2E5A4C;
+            --emerald-light: #4A7C6B;
+            --emerald-bright: #5A9A84;
+            --emerald-dark: #1D3D33;
+            --emerald-glow: rgba(46, 90, 76, 0.5);
             --gold: #B8860B;
             --gold-light: #D4AF37;
             --gold-dark: #8B6914;
             --gold-glow: rgba(212, 175, 55, 0.3);
-            
-            /* Neutrals */
+            --stria-blue: #1E3A5F;
+            --stria-blue-light: #3D5A80;
+            --burgundy: #722F37;
             --champagne: #F7E7CE;
             --cream: #FDF5E6;
             --noir: #0A0A0A;
@@ -32,2400 +29,348 @@
             --slate: #2A2A2A;
             --text-muted: #9A8F80;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            background: var(--noir); 
-            color: var(--cream); 
-            line-height: 1.7;
-        }
-
-        /* Grain overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            opacity: 0.02;
-            pointer-events: none;
-            z-index: 1000;
-        }
-
-        .serif { font-family: 'Cormorant Garamond', serif; }
-
-        /* Header */
-        .header {
-            background: linear-gradient(180deg, rgba(10, 10, 10, 0.98) 0%, rgba(18, 18, 18, 0.95) 100%);
-            backdrop-filter: blur(20px);
-            padding: 1rem 2rem;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--stria-blue);
-        }
-
-        .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .logo {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--stria-blue) 0%, var(--stria-blue-light) 100%);
-            border-radius: 8px;
-            box-shadow: 0 0 20px var(--stria-glow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: var(--cream);
-            font-size: 1rem;
-        }
-
-        .branding h1 {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--cream);
-            font-size: 1.5rem;
-            font-weight: 400;
-            letter-spacing: 0.1em;
-        }
-
-        .branding .subtitle {
-            color: var(--stria-blue-light);
-            font-size: 0.65rem;
-            font-weight: 500;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-        }
-
-        .nav {
-            display: flex;
-            gap: 0.25rem;
-        }
-
-        .nav-btn {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 6px;
-            background: transparent;
-            color: var(--text-muted);
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .nav-btn:hover {
-            color: var(--cream);
-            background: rgba(255,255,255,0.05);
-        }
-
-        .nav-btn.active {
-            background: linear-gradient(135deg, var(--stria-blue) 0%, var(--stria-blue-light) 100%);
-            color: var(--cream);
-            box-shadow: 0 0 20px var(--stria-glow);
-        }
-
-        /* Hero */
-        .hero {
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 10rem 2rem 6rem;
-            position: relative;
-            background: linear-gradient(180deg, var(--noir) 0%, var(--stria-blue-dark) 50%, var(--noir) 100%);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at center, var(--stria-glow) 0%, transparent 60%);
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 200px;
-            background: linear-gradient(to top, var(--noir) 0%, transparent 100%);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
-            border: 1px solid var(--stria-blue);
-            border-radius: 20px;
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--stria-blue-light);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 300;
-            color: var(--cream);
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
-
-        .hero-title em {
-            font-style: italic;
-            color: var(--stria-blue-light);
-        }
-
-        .hero-subtitle {
-            font-size: 1.15rem;
-            color: var(--champagne);
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            font-weight: 300;
-            line-height: 1.8;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            padding: 0.875rem 2rem;
-            background: linear-gradient(135deg, var(--stria-blue) 0%, var(--stria-blue-light) 100%);
-            border: none;
-            border-radius: 6px;
-            color: var(--cream);
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 0 20px var(--stria-glow);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 30px var(--stria-glow);
-        }
-
-        .btn-secondary {
-            padding: 0.875rem 2rem;
-            background: transparent;
-            border: 1px solid var(--gold-dark);
-            border-radius: 6px;
-            color: var(--gold-light);
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(212, 175, 55, 0.1);
-            border-color: var(--gold-light);
-        }
-
-        /* Section Base */
-        .section {
-            padding: 5rem 2rem;
-            position: relative;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-label {
-            font-size: 0.7rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--stria-blue-light);
-            margin-bottom: 0.75rem;
-        }
-
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 300;
-            color: var(--cream);
-            margin-bottom: 0.75rem;
-        }
-
-        .section-subtitle {
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1rem;
-        }
-
-        /* Stats Bar */
-        .stats-section {
-            background: linear-gradient(180deg, var(--noir) 0%, var(--velvet) 100%);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
-            border: 1px solid var(--stria-blue);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at top right, rgba(255,255,255,0.03) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .stat-value {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            font-weight: 400;
-            color: var(--stria-blue-light);
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-label {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        /* What STRIA Does */
-        .capabilities-section {
-            background: linear-gradient(180deg, var(--velvet) 0%, var(--noir) 100%);
-        }
-
-        .capabilities-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 3rem;
-        }
-
-        .capability-left {
-            padding-right: 2rem;
-        }
-
-        .capability-desc {
-            font-size: 1.1rem;
-            color: var(--champagne);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .capability-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .capability-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            padding: 0.75rem 1rem;
-            background: rgba(255,255,255,0.02);
-            border-radius: 8px;
-            border-left: 3px solid var(--stria-blue-light);
-        }
-
-        .capability-icon {
-            font-size: 1.25rem;
-            flex-shrink: 0;
-        }
-
-        .capability-text {
-            font-size: 0.9rem;
-            color: var(--cream);
-        }
-
-        .capability-right {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .who-uses-card {
-            background: linear-gradient(135deg, var(--velvet) 0%, var(--stria-blue) 100%);
-            border: 1px solid var(--stria-blue-light);
-            border-radius: 12px;
-            padding: 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .who-uses-card:hover {
-            transform: translateX(8px);
-            box-shadow: 0 0 30px var(--stria-glow);
-        }
-
-        .who-uses-icon {
-            font-size: 1.5rem;
-        }
-
-        .who-uses-text h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            color: var(--cream);
-            margin-bottom: 0.25rem;
-        }
-
-        .who-uses-text p {
-            font-size: 0.8rem;
-            color: var(--champagne);
-            opacity: 0.8;
-        }
-
-        /* Certification Levels */
-        .levels-section {
-            background: linear-gradient(180deg, var(--noir) 0%, var(--velvet) 50%, var(--noir) 100%);
-        }
-
-        .levels-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .level-item {
-            display: grid;
-            grid-template-columns: 70px 180px 1fr;
-            gap: 1.5rem;
-            padding: 1.25rem 1.5rem;
-            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
-            border: 1px solid var(--slate);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            align-items: center;
-        }
-
-        .level-item:hover {
-            border-color: var(--stria-blue);
-            transform: translateX(8px);
-            box-shadow: 0 0 20px var(--stria-glow);
-        }
-
-        .level-badge {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.25rem;
-        }
-
-        .level-badge.l1 { background: linear-gradient(135deg, #4A4A4A 0%, #666 100%); color: var(--cream); }
-        .level-badge.l2 { background: linear-gradient(135deg, #5D4A3A 0%, #8B6914 100%); color: var(--cream); }
-        .level-badge.l3 { background: linear-gradient(135deg, var(--stria-blue-dark) 0%, var(--stria-blue) 100%); color: var(--cream); }
-        .level-badge.l4 { background: linear-gradient(135deg, var(--stria-blue) 0%, var(--stria-blue-light) 100%); color: var(--cream); box-shadow: 0 0 15px var(--stria-glow); }
-        .level-badge.l5 { background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 100%); color: var(--noir); box-shadow: 0 0 15px var(--gold-glow); }
-        .level-badge.l6 { background: linear-gradient(135deg, var(--gold) 0%, #FFD700 100%); color: var(--noir); box-shadow: 0 0 20px var(--gold-glow); }
-
-        .level-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            color: var(--cream);
-        }
-
-        .level-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        /* Registry */
-        .registry-section {
-            background: linear-gradient(180deg, var(--noir) 0%, var(--velvet) 100%);
-        }
-
-        .registry-filters {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-select {
-            padding: 0.625rem 1rem;
-            background: var(--smoke);
-            border: 1px solid var(--slate);
-            border-radius: 6px;
-            color: var(--cream);
-            font-size: 0.9rem;
-            cursor: pointer;
-            min-width: 150px;
-        }
-
-        .filter-select:focus {
-            outline: none;
-            border-color: var(--stria-blue);
-        }
-
-        .mine-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .mine-card {
-            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
-            border: 1px solid var(--slate);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .mine-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at top right, rgba(255,255,255,0.03) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .mine-card:hover {
-            border-color: var(--stria-blue);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3), 0 0 30px var(--stria-glow);
-        }
-
-        .mine-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1.25rem;
-        }
-
-        .mine-info h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            color: var(--cream);
-            margin-bottom: 0.25rem;
-        }
-
-        .mine-location {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .cert-badge {
-            padding: 0.35rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-
-        .cert-badge.level-1, .cert-badge.level-2 { background: var(--slate); color: var(--cream); }
-        .cert-badge.level-3 { background: var(--stria-blue-dark); color: var(--cream); }
-        .cert-badge.level-4 { background: var(--stria-blue); color: var(--cream); }
-        .cert-badge.level-5 { background: var(--gold-dark); color: var(--cream); }
-        .cert-badge.level-6 { background: var(--gold-light); color: var(--noir); }
-
-        .mine-stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.75rem;
-        }
-
-        .mine-stat {
-            text-align: center;
-        }
-
-        .mine-stat-value {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            color: var(--stria-blue-light);
-            margin-bottom: 0.15rem;
-        }
-
-        .mine-stat-label {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .progress-bar {
-            height: 4px;
-            background: var(--slate);
-            border-radius: 2px;
-            margin-top: 0.35rem;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--stria-blue) 0%, var(--stria-blue-light) 100%);
-            border-radius: 2px;
-        }
-
-        /* Verification Section */
-        .verify-section {
-            background: linear-gradient(180deg, var(--velvet) 0%, var(--noir) 100%);
-        }
-
-        .verify-box {
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
-            border: 1px solid var(--stria-blue);
-            border-radius: 12px;
-            padding: 2rem;
-        }
-
-        .verify-label {
-            font-size: 0.9rem;
-            color: var(--cream);
-            margin-bottom: 0.75rem;
-            font-weight: 500;
-        }
-
-        .verify-input {
-            width: 100%;
-            padding: 1rem;
-            background: var(--noir);
-            border: 1px solid var(--slate);
-            border-radius: 6px;
-            color: var(--cream);
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .verify-input:focus {
-            outline: none;
-            border-color: var(--stria-blue);
-            box-shadow: 0 0 20px var(--stria-glow);
-        }
-
-        .verify-actions {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .verify-action {
-            background: linear-gradient(135deg, var(--smoke) 0%, var(--slate) 100%);
-            border: 1px solid var(--slate);
-            border-radius: 10px;
-            padding: 1.25rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .verify-action:hover {
-            border-color: var(--stria-blue);
-            transform: translateY(-4px);
-        }
-
-        .verify-action-icon {
-            font-size: 1.75rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .verify-action-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
-            color: var(--cream);
-            margin-bottom: 0.25rem;
-        }
-
-        .verify-action-desc {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-        }
-
-        /* Partner Network */
-        .partners-section {
-            background: linear-gradient(180deg, var(--noir) 0%, var(--stria-blue-dark) 50%, var(--noir) 100%);
-            position: relative;
-        }
-
-        .partners-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at center, var(--stria-glow) 0%, transparent 60%);
-            opacity: 0.3;
-        }
-
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-            position: relative;
-        }
-
-        .partner-card {
-            background: linear-gradient(135deg, var(--velvet) 0%, var(--stria-blue) 100%);
-            border: 1px solid var(--stria-blue);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .partner-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at top right, rgba(255,255,255,0.05) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .partner-card:hover {
-            border-color: var(--stria-blue-light);
-            transform: translateY(-4px);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.3), 0 0 30px var(--stria-glow);
-        }
-
-        .partner-emoji {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .partner-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            color: var(--cream);
-            margin-bottom: 0.5rem;
-        }
-
-        .partner-desc {
-            font-size: 0.75rem;
-            color: var(--champagne);
-            opacity: 0.8;
-            line-height: 1.5;
-        }
-
-        /* Ecosystem Connection */
-        .ecosystem-section {
-            background: var(--noir);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .ecosystem-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
-            border: 1px solid var(--gold-dark);
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-        }
-
-        .ecosystem-badge-icon {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: var(--noir);
-            font-size: 0.8rem;
-        }
-
-        .ecosystem-badge-text {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .ecosystem-badge-text strong {
-            color: var(--gold-light);
-        }
-
-        .ecosystem-tagline {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            color: var(--cream);
-            font-style: italic;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        .ecosystem-link {
-            color: var(--stria-blue-light);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-
-        .ecosystem-link:hover {
-            color: var(--gold-light);
-        }
-
-        /* Onboarding Section */
-        .onboard-section {
-            background: linear-gradient(180deg, var(--noir) 0%, var(--velvet) 100%);
-        }
-
-        .onboard-paths {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .onboard-path {
-            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
-            border: 2px solid var(--slate);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .onboard-path::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at top right, rgba(255,255,255,0.03) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .onboard-path:hover, .onboard-path.active {
-            border-color: var(--stria-blue-light);
-            transform: translateY(-4px);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.3), 0 0 30px var(--stria-glow);
-        }
-
-        .onboard-path.active {
-            background: linear-gradient(135deg, var(--velvet) 0%, var(--stria-blue-dark) 100%);
-        }
-
-        .onboard-path-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .onboard-path-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            color: var(--cream);
-            margin-bottom: 0.5rem;
-        }
-
-        .onboard-path-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        /* Forms */
-        .onboard-form-container {
-            display: none;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .onboard-form-container.active {
-            display: block;
-        }
-
-        .form-card {
-            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
-            border: 1px solid var(--stria-blue);
-            border-radius: 16px;
-            padding: 2.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .form-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at top right, rgba(255,255,255,0.03) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .form-header h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.75rem;
-            color: var(--cream);
-            margin-bottom: 0.5rem;
-        }
-
-        .form-header p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            font-size: 0.85rem;
-            color: var(--cream);
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-label .required {
-            color: var(--stria-blue-bright);
-        }
-
-        .form-input, .form-select, .form-textarea {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            background: var(--noir);
-            border: 1px solid var(--slate);
-            border-radius: 8px;
-            color: var(--cream);
-            font-size: 0.95rem;
-            font-family: 'Montserrat', sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus, .form-select:focus, .form-textarea:focus {
-            outline: none;
-            border-color: var(--stria-blue-light);
-            box-shadow: 0 0 20px var(--stria-glow);
-        }
-
-        .form-input::placeholder, .form-textarea::placeholder {
-            color: var(--text-muted);
-        }
-
-        .form-textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .form-hint {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 0.35rem;
-        }
-
-        /* Checkbox group */
-        .checkbox-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .checkbox-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            padding: 0.75rem 1rem;
-            background: rgba(0,0,0,0.2);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .checkbox-item:hover {
-            background: rgba(61, 90, 128, 0.15);
-        }
-
-        .checkbox-item input {
-            margin-top: 0.2rem;
-            accent-color: var(--stria-blue-light);
-        }
-
-        .checkbox-label {
-            flex: 1;
-        }
-
-        .checkbox-label strong {
-            display: block;
-            font-size: 0.9rem;
-            color: var(--cream);
-            margin-bottom: 0.15rem;
-        }
-
-        .checkbox-label span {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        /* File upload */
-        .file-upload {
-            border: 2px dashed var(--slate);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .file-upload:hover {
-            border-color: var(--stria-blue);
-            background: rgba(61, 90, 128, 0.1);
-        }
-
-        .file-upload-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .file-upload-text {
-            font-size: 0.9rem;
-            color: var(--cream);
-            margin-bottom: 0.25rem;
-        }
-
-        .file-upload-hint {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        /* Steps indicator */
-        .form-steps {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .form-step {
-            width: 40px;
-            height: 4px;
-            background: var(--slate);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .form-step.active {
-            background: var(--stria-blue-light);
-        }
-
-        .form-step.complete {
-            background: var(--stria-blue-bright);
-        }
-
-        /* Form navigation */
-        .form-nav {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--slate);
-        }
-
-        .form-nav-back {
-            padding: 0.75rem 1.5rem;
-            background: transparent;
-            border: 1px solid var(--slate);
-            border-radius: 6px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .form-nav-back:hover {
-            border-color: var(--stria-blue);
-            color: var(--cream);
-        }
-
-        .form-nav-next {
-            padding: 0.75rem 2rem;
-            background: linear-gradient(135deg, var(--stria-blue) 0%, var(--stria-blue-light) 100%);
-            border: none;
-            border-radius: 6px;
-            color: var(--cream);
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 0 20px var(--stria-glow);
-        }
-
-        .form-nav-next:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 30px var(--stria-glow);
-        }
-
-        /* Success state */
-        .form-success {
-            display: none;
-            text-align: center;
-            padding: 3rem 2rem;
-        }
-
-        .form-success.show {
-            display: block;
-        }
-
-        .form-success-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .form-success h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            color: var(--cream);
-            margin-bottom: 1rem;
-        }
-
-        .form-success p {
-            font-size: 1rem;
-            color: var(--champagne);
-            margin-bottom: 0.5rem;
-        }
-
-        .form-success .next-steps {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background: rgba(0,0,0,0.3);
-            border-radius: 12px;
-            text-align: left;
-        }
-
-        .form-success .next-steps h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            color: var(--stria-blue-bright);
-            margin-bottom: 1rem;
-        }
-
-        .form-success .next-steps ul {
-            list-style: none;
-        }
-
-        .form-success .next-steps li {
-            padding: 0.5rem 0;
-            font-size: 0.9rem;
-            color: var(--cream);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .form-success .next-steps li::before {
-            content: '→';
-            color: var(--stria-blue-bright);
-        }
-
-        @media (max-width: 900px) {
-            .onboard-paths {
-                grid-template-columns: 1fr;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--noir);
-            padding: 3rem 2rem;
-            text-align: center;
-            border-top: 1px solid var(--stria-blue);
-            position: relative;
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--stria-blue-light), transparent);
-        }
-
-        .footer-logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            color: var(--cream);
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.1em;
-        }
-
-        .footer-tagline {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-style: italic;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-link {
-            font-size: 0.75rem;
-            color: var(--stria-blue-light);
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: color 0.3s;
-        }
-
-        .footer-link:hover {
-            color: var(--cream);
-        }
-
-        .footer-bottom {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-        }
-
-        /* Tab content */
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        /* Responsive */
-        @media (max-width: 1000px) {
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .capabilities-grid { grid-template-columns: 1fr; }
-            .mine-grid { grid-template-columns: 1fr; }
-            .partners-grid { grid-template-columns: repeat(2, 1fr); }
-            .verify-actions { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 768px) {
-            .header-content { flex-direction: column; gap: 1rem; }
-            .nav { flex-wrap: wrap; justify-content: center; }
-            .level-item { grid-template-columns: 60px 1fr; }
-            .level-desc { grid-column: span 2; margin-top: 0.5rem; }
-            .mine-stats { grid-template-columns: repeat(2, 1fr); }
-            .partners-grid { grid-template-columns: 1fr; }
-            .footer-links { flex-direction: column; gap: 1rem; }
-        }
-
-        @media (max-width: 600px) {
-            .stats-grid { grid-template-columns: 1fr; }
-        }
+        body { font-family: 'Montserrat', sans-serif; background: var(--noir); color: var(--cream); line-height: 1.7; }
+        body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); opacity: 0.02; pointer-events: none; z-index: 1000; }
+        .header { background: linear-gradient(180deg, rgba(10, 10, 10, 0.98) 0%, rgba(18, 18, 18, 0.95) 100%); backdrop-filter: blur(20px); padding: 1rem 2rem; position: fixed; top: 0; left: 0; right: 0; z-index: 100; border-bottom: 1px solid var(--emerald); }
+        .header-content { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+        .logo-section { display: flex; align-items: center; gap: 0.75rem; }
+        .logo { width: 40px; height: 40px; background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%); border-radius: 8px; box-shadow: 0 0 20px var(--emerald-glow); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--cream); font-size: 1rem; }
+        .branding h1 { font-family: 'Cormorant Garamond', serif; color: var(--cream); font-size: 1.5rem; font-weight: 400; letter-spacing: 0.05em; }
+        .branding h1 .domain { color: var(--emerald-light); }
+        .branding .subtitle { color: var(--emerald-light); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; }
+        .nav { display: flex; gap: 0.25rem; }
+        .nav-btn { padding: 0.5rem 1rem; border: none; border-radius: 6px; background: transparent; color: var(--text-muted); cursor: pointer; font-size: 0.85rem; font-weight: 500; transition: all 0.3s; }
+        .nav-btn:hover { color: var(--cream); background: rgba(255,255,255,0.05); }
+        .nav-btn.active { background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%); color: var(--cream); box-shadow: 0 0 20px var(--emerald-glow); }
+        .hero { min-height: 75vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 10rem 2rem 6rem; position: relative; background: linear-gradient(180deg, var(--noir) 0%, var(--emerald-dark) 50%, var(--noir) 100%); }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at center, var(--emerald-glow) 0%, transparent 60%); }
+        .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 200px; background: linear-gradient(to top, var(--noir) 0%, transparent 100%); }
+        .hero-content { position: relative; z-index: 1; max-width: 900px; }
+        .hero-badge { display: inline-block; padding: 0.4rem 1rem; background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%); border: 1px solid var(--emerald); border-radius: 20px; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--emerald-light); margin-bottom: 1.5rem; }
+        .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 300; color: var(--cream); margin-bottom: 1.5rem; line-height: 1.1; }
+        .hero-title .domain { color: var(--emerald-light); }
+        .hero-subtitle { font-size: 1.15rem; color: var(--champagne); max-width: 700px; margin: 0 auto 2.5rem; font-weight: 300; line-height: 1.8; }
+        .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { padding: 0.875rem 2rem; background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%); border: none; border-radius: 6px; color: var(--cream); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.3s; box-shadow: 0 0 20px var(--emerald-glow); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 30px var(--emerald-glow); }
+        .btn-secondary { padding: 0.875rem 2rem; background: transparent; border: 1px solid var(--gold-dark); border-radius: 6px; color: var(--gold-light); font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.3s; }
+        .btn-secondary:hover { background: rgba(212, 175, 55, 0.1); border-color: var(--gold-light); }
+        .section { padding: 5rem 2rem; position: relative; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-label { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--emerald-light); margin-bottom: 0.75rem; }
+        .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 300; color: var(--cream); margin-bottom: 0.75rem; }
+        .section-subtitle { color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 1rem; }
+        .position-section { background: linear-gradient(180deg, var(--noir) 0%, var(--velvet) 100%); }
+        .position-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .position-content h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--cream); margin-bottom: 1.5rem; }
+        .position-content p { font-size: 1rem; color: var(--champagne); line-height: 1.8; margin-bottom: 1rem; }
+        .position-content strong { color: var(--emerald-light); }
+        .position-highlight { background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%); border-left: 4px solid var(--emerald); padding: 1.5rem; border-radius: 0 8px 8px 0; margin-top: 1.5rem; }
+        .position-highlight p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--emerald-light); margin: 0; }
+        .flow-chain { display: flex; flex-direction: column; gap: 0.5rem; }
+        .flow-item { display: flex; align-items: center; gap: 1rem; padding: 1rem; background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%); border-radius: 10px; border: 1px solid var(--slate); }
+        .flow-item.highlight { border-color: var(--emerald); background: linear-gradient(135deg, var(--velvet) 0%, var(--emerald-dark) 100%); box-shadow: 0 0 20px var(--emerald-glow); }
+        .flow-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; }
+        .flow-icon.stria { background: var(--stria-blue); color: var(--cream); }
+        .flow-icon.core { background: var(--gold-dark); color: var(--cream); }
+        .flow-icon.mt { background: var(--emerald); color: var(--cream); }
+        .flow-icon.alchemy { background: var(--gold); color: var(--noir); }
+        .flow-icon.nextheir { background: var(--burgundy); color: var(--cream); }
+        .flow-text h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--cream); }
+        .flow-text p { font-size: 0.75rem; color: var(--text-muted); margin: 0; }
+        .flow-arrow { text-align: center; color: var(--emerald-light); font-size: 1.25rem; opacity: 0.5; }
+        .serves-section { background: linear-gradient(180deg, var(--velvet) 0%, var(--noir) 100%); }
+        .serves-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .serve-card { background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%); border: 1px solid var(--slate); border-radius: 16px; padding: 2rem; transition: all 0.3s ease; position: relative; overflow: hidden; cursor: pointer; }
+        .serve-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at top right, rgba(255,255,255,0.03) 0%, transparent 60%); pointer-events: none; }
+        .serve-card:hover { border-color: var(--emerald); transform: translateY(-4px); box-shadow: 0 15px 50px rgba(0,0,0,0.3), 0 0 30px var(--emerald-glow); }
+        .serve-card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .serve-icon { font-size: 2.5rem; }
+        .serve-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--cream); }
+        .serve-subtitle { font-size: 0.8rem; color: var(--emerald-light); }
+        .serve-features { list-style: none; }
+        .serve-features li { padding: 0.5rem 0; font-size: 0.9rem; color: var(--champagne); display: flex; align-items: flex-start; gap: 0.75rem; }
+        .serve-features li::before { content: '✓'; color: var(--emerald-light); font-weight: 600; }
+        .features-section { background: linear-gradient(180deg, var(--noir) 0%, var(--emerald-dark) 50%, var(--noir) 100%); position: relative; }
+        .features-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at center, var(--emerald-glow) 0%, transparent 60%); opacity: 0.3; }
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; position: relative; }
+        .feature-card { background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%); border: 1px solid var(--slate); border-radius: 12px; padding: 1.75rem; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .feature-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at top right, rgba(255,255,255,0.03) 0%, transparent 60%); pointer-events: none; }
+        .feature-card:hover { border-color: var(--emerald); transform: translateY(-4px); box-shadow: 0 15px 50px rgba(0,0,0,0.3), 0 0 30px var(--emerald-glow); }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .feature-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--cream); margin-bottom: 0.75rem; }
+        .feature-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+        .partners-section { background: linear-gradient(180deg, var(--noir) 0%, var(--velvet) 100%); }
+        .partners-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .partner-card { background: linear-gradient(135deg, var(--velvet) 0%, var(--emerald-dark) 100%); border: 1px solid var(--emerald); border-radius: 12px; padding: 1.5rem; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .partner-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at top right, rgba(255,255,255,0.05) 0%, transparent 60%); pointer-events: none; }
+        .partner-card:hover { border-color: var(--emerald-light); transform: translateY(-4px); box-shadow: 0 15px 50px rgba(0,0,0,0.3), 0 0 30px var(--emerald-glow); }
+        .partner-emoji { font-size: 2rem; margin-bottom: 0.75rem; }
+        .partner-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--cream); margin-bottom: 0.5rem; }
+        .partner-desc { font-size: 0.75rem; color: var(--champagne); opacity: 0.8; line-height: 1.5; }
+        .onboard-section { background: linear-gradient(180deg, var(--velvet) 0%, var(--noir) 100%); }
+        .onboard-paths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+        .onboard-path { background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%); border: 2px solid var(--slate); border-radius: 16px; padding: 2rem; text-align: center; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .onboard-path::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at top right, rgba(255,255,255,0.03) 0%, transparent 60%); pointer-events: none; }
+        .onboard-path:hover, .onboard-path.active { border-color: var(--emerald-light); transform: translateY(-4px); box-shadow: 0 15px 50px rgba(0,0,0,0.3), 0 0 30px var(--emerald-glow); }
+        .onboard-path.active { background: linear-gradient(135deg, var(--velvet) 0%, var(--emerald-dark) 100%); }
+        .onboard-path-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .onboard-path-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--cream); margin-bottom: 0.5rem; }
+        .onboard-path-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+        .onboard-form-container { display: none; max-width: 700px; margin: 0 auto; }
+        .onboard-form-container.active { display: block; }
+        .form-card { background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%); border: 1px solid var(--emerald); border-radius: 16px; padding: 2.5rem; position: relative; overflow: hidden; }
+        .form-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at top right, rgba(255,255,255,0.03) 0%, transparent 60%); pointer-events: none; }
+        .form-header { text-align: center; margin-bottom: 2rem; }
+        .form-header h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; color: var(--cream); margin-bottom: 0.5rem; }
+        .form-header p { font-size: 0.9rem; color: var(--text-muted); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; font-size: 0.85rem; color: var(--cream); margin-bottom: 0.5rem; font-weight: 500; }
+        .form-label .required { color: var(--emerald-bright); }
+        .form-input, .form-select, .form-textarea { width: 100%; padding: 0.875rem 1rem; background: var(--noir); border: 1px solid var(--slate); border-radius: 8px; color: var(--cream); font-size: 0.95rem; font-family: 'Montserrat', sans-serif; transition: all 0.3s ease; }
+        .form-input:focus, .form-select:focus, .form-textarea:focus { outline: none; border-color: var(--emerald-light); box-shadow: 0 0 20px var(--emerald-glow); }
+        .form-input::placeholder, .form-textarea::placeholder { color: var(--text-muted); }
+        .form-textarea { min-height: 120px; resize: vertical; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .checkbox-group { display: flex; flex-direction: column; gap: 0.75rem; }
+        .checkbox-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; cursor: pointer; transition: all 0.2s ease; }
+        .checkbox-item:hover { background: rgba(46, 90, 76, 0.15); }
+        .checkbox-item input { margin-top: 0.2rem; accent-color: var(--emerald-light); }
+        .checkbox-label { flex: 1; }
+        .checkbox-label strong { display: block; font-size: 0.9rem; color: var(--cream); margin-bottom: 0.15rem; }
+        .checkbox-label span { font-size: 0.75rem; color: var(--text-muted); }
+        .stria-check { background: linear-gradient(135deg, var(--velvet) 0%, var(--stria-blue) 100%); border: 1px solid var(--stria-blue-light); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        .stria-check-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .stria-check-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--stria-blue) 0%, var(--stria-blue-light) 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--cream); }
+        .stria-check-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--cream); }
+        .stria-options { display: flex; gap: 1rem; }
+        .stria-option { flex: 1; padding: 0.75rem 1rem; background: rgba(0,0,0,0.3); border: 1px solid var(--slate); border-radius: 8px; text-align: center; cursor: pointer; transition: all 0.2s ease; font-size: 0.85rem; color: var(--cream); }
+        .stria-option:hover { border-color: var(--stria-blue-light); }
+        .stria-option.selected { border-color: var(--stria-blue-light); background: var(--stria-blue); }
+        .stria-redirect { display: none; margin-top: 1rem; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
+        .stria-redirect.show { display: block; }
+        .stria-redirect p { font-size: 0.85rem; color: var(--champagne); margin-bottom: 0.75rem; }
+        .stria-redirect a { display: inline-block; padding: 0.5rem 1rem; background: var(--stria-blue); color: var(--cream); text-decoration: none; border-radius: 6px; font-size: 0.85rem; transition: all 0.2s ease; }
+        .stria-redirect a:hover { background: var(--stria-blue-light); }
+        .form-nav { display: flex; justify-content: space-between; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--slate); }
+        .form-nav-next { padding: 0.75rem 2rem; background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%); border: none; border-radius: 6px; color: var(--cream); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 0 20px var(--emerald-glow); }
+        .form-nav-next:hover { transform: translateY(-2px); box-shadow: 0 5px 30px var(--emerald-glow); }
+        .form-success { display: none; text-align: center; padding: 3rem 2rem; }
+        .form-success.show { display: block; }
+        .form-success-icon { font-size: 4rem; margin-bottom: 1.5rem; }
+        .form-success h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--cream); margin-bottom: 1rem; }
+        .form-success p { font-size: 1rem; color: var(--champagne); margin-bottom: 0.5rem; }
+        .form-success .next-steps { margin-top: 2rem; padding: 1.5rem; background: rgba(0,0,0,0.3); border-radius: 12px; text-align: left; }
+        .form-success .next-steps h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--emerald-bright); margin-bottom: 1rem; }
+        .form-success .next-steps ul { list-style: none; }
+        .form-success .next-steps li { padding: 0.5rem 0; font-size: 0.9rem; color: var(--cream); display: flex; align-items: center; gap: 0.75rem; }
+        .form-success .next-steps li::before { content: '→'; color: var(--emerald-bright); }
+        .ecosystem-section { background: var(--noir); padding: 4rem 2rem; text-align: center; }
+        .ecosystem-badge { display: inline-flex; align-items: center; gap: 1rem; padding: 1rem 2rem; background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%); border: 1px solid var(--gold-dark); border-radius: 8px; margin-bottom: 1.5rem; }
+        .ecosystem-badge-icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--noir); font-size: 0.8rem; }
+        .ecosystem-badge-text { font-size: 0.8rem; color: var(--text-muted); }
+        .ecosystem-badge-text strong { color: var(--gold-light); }
+        .ecosystem-tagline { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--cream); font-style: italic; max-width: 700px; margin: 0 auto 2rem; }
+        .ecosystem-link { color: var(--emerald-light); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .ecosystem-link:hover { color: var(--gold-light); }
+        .footer { background: var(--noir); padding: 3rem 2rem; text-align: center; border-top: 1px solid var(--emerald); position: relative; }
+        .footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, var(--emerald-light), transparent); }
+        .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--cream); margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+        .footer-tagline { font-size: 0.85rem; color: var(--text-muted); font-style: italic; margin-bottom: 1.5rem; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .footer-link { font-size: 0.75rem; color: var(--emerald-light); text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s; }
+        .footer-link:hover { color: var(--cream); }
+        .footer-bottom { font-size: 0.7rem; color: var(--text-muted); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        @media (max-width: 1000px) { .position-grid { grid-template-columns: 1fr; } .serves-grid { grid-template-columns: 1fr; } .features-grid { grid-template-columns: repeat(2, 1fr); } .partners-grid { grid-template-columns: repeat(2, 1fr); } .onboard-paths { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .header-content { flex-direction: column; gap: 1rem; } .nav { flex-wrap: wrap; justify-content: center; } .features-grid { grid-template-columns: 1fr; } .partners-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } .stria-options { flex-direction: column; } .footer-links { flex-direction: column; gap: 1rem; } }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="header-content">
             <div class="logo-section">
-                <div class="logo">S</div>
+                <div class="logo">M</div>
                 <div class="branding">
-                    <h1>STRIA</h1>
-                    <p class="subtitle">Standards for Traceable Resource Integrity & Advancement</p>
+                    <h1>Mineral<span class="domain">Trace</span></h1>
+                    <p class="subtitle">B2B Verified Minerals Marketplace</p>
                 </div>
             </div>
             <nav class="nav">
                 <button class="nav-btn active" onclick="showTab('overview')">Overview</button>
-                <button class="nav-btn" onclick="showTab('registry')">Registry</button>
-                <button class="nav-btn" onclick="showTab('levels')">Certification</button>
-                <button class="nav-btn" onclick="showTab('verify')">Verify</button>
+                <button class="nav-btn" onclick="showTab('marketplace')">Marketplace</button>
                 <button class="nav-btn" onclick="showTab('partners')">Partners</button>
-                <button class="nav-btn" onclick="showTab('onboard')" style="background: linear-gradient(135deg, var(--stria-blue) 0%, var(--stria-blue-light) 100%); color: var(--cream);">Get Started</button>
+                <button class="nav-btn" onclick="showTab('onboard')" style="background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%); color: var(--cream);">Get Started</button>
             </nav>
         </div>
     </header>
-
-    <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
             <span class="hero-badge">Element United Ecosystem</span>
-            <h1 class="hero-title">The <em>Verification</em> Layer</h1>
-            <p class="hero-subtitle">STRIA certifies ethical origin, environmental compliance, and chain of custody at the source. Before anything moves, STRIA says it's real, it's clean, it's verified.</p>
+            <h1 class="hero-title">Mineral<span class="domain">Trace</span>.earth</h1>
+            <p class="hero-subtitle">B2B marketplace connecting STRIA-certified mines with sustainability-focused buyers. Where verified provenance becomes market access.</p>
             <div class="hero-cta">
-                <button class="btn-primary" onclick="showTab('onboard')">Get Certified</button>
-                <button class="btn-secondary" onclick="showTab('registry')">Explore Registry</button>
+                <button class="btn-primary" onclick="showTab('onboard')">Join the Marketplace</button>
+                <button class="btn-secondary" onclick="showTab('marketplace')">See How It Works</button>
             </div>
         </div>
     </section>
-
-    <!-- Overview Tab (default) -->
     <div id="overview-tab" class="tab-content active">
-        <!-- Stats -->
-        <section class="section stats-section">
+        <section class="section position-section">
             <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-value">47</div>
-                        <div class="stat-label">Certified Mines</div>
+                <div class="position-grid">
+                    <div class="position-content">
+                        <h3>Where MineralTrace Fits</h3>
+                        <p>MineralTrace is not infrastructure (that's CORE) or verification (that's STRIA) — it's the <strong>B2B marketplace</strong> that mines and jewelers subscribe to, transact through, and pay for.</p>
+                        <p>Think of it as Element United's commercial layer: where certification and tokenization become recurring revenue.</p>
+                        <div class="position-highlight"><p>"The marketplace where verified supply meets verified demand."</p></div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-value">12</div>
-                        <div class="stat-label">Countries</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">98.2%</div>
-                        <div class="stat-label">Avg Compliance</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">-24%</div>
-                        <div class="stat-label">Emissions Reduction</div>
+                    <div class="flow-chain">
+                        <div class="flow-item"><div class="flow-icon stria">S</div><div class="flow-text"><h4>STRIA</h4><p>Certifies at source</p></div></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-item"><div class="flow-icon core">C</div><div class="flow-text"><h4>CORE</h4><p>Tokenizes assets</p></div></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-item highlight"><div class="flow-icon mt">M</div><div class="flow-text"><h4>MineralTrace</h4><p>Connects & transacts</p></div></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-item"><div class="flow-icon alchemy">A</div><div class="flow-text"><h4>Alchemy</h4><p>Transforms</p></div></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-item"><div class="flow-icon nextheir">N</div><div class="flow-text"><h4>NextHeir</h4><p>Preserves</p></div></div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- What STRIA Does -->
-        <section class="section capabilities-section">
+        <section class="section serves-section">
             <div class="container">
-                <div class="section-header">
-                    <p class="section-label">The Verification Layer</p>
-                    <h2 class="section-title">What STRIA Does</h2>
-                </div>
-
-                <div class="capabilities-grid">
-                    <div class="capability-left">
-                        <p class="capability-desc">STRIA is the verification layer of the Element United ecosystem. It certifies ethical origin, environmental compliance, and chain of custody at the source — before anything moves through the supply chain.</p>
-                        <div class="capability-list">
-                            <div class="capability-item">
-                                <span class="capability-icon">✓</span>
-                                <span class="capability-text">Mine onboarding & certification</span>
-                            </div>
-                            <div class="capability-item">
-                                <span class="capability-icon">✓</span>
-                                <span class="capability-text">ESG compliance verification</span>
-                            </div>
-                            <div class="capability-item">
-                                <span class="capability-icon">✓</span>
-                                <span class="capability-text">Chain of custody documentation</span>
-                            </div>
-                            <div class="capability-item">
-                                <span class="capability-icon">✓</span>
-                                <span class="capability-text">In-ground asset certification</span>
-                            </div>
-                            <div class="capability-item">
-                                <span class="capability-icon">✓</span>
-                                <span class="capability-text">Ethical extraction standards</span>
-                            </div>
-                            <div class="capability-item">
-                                <span class="capability-icon">✓</span>
-                                <span class="capability-text">Indigenous consent verification</span>
-                            </div>
-                        </div>
+                <div class="section-header"><p class="section-label">Built For</p><h2 class="section-title">Who Uses MineralTrace</h2></div>
+                <div class="serves-grid">
+                    <div class="serve-card" onclick="showTab('onboard')">
+                        <div class="serve-card-header"><span class="serve-icon">⛏️</span><div><h3 class="serve-title">Sellers</h3><p class="serve-subtitle">STRIA-Certified Mines</p></div></div>
+                        <ul class="serve-features"><li>List verified materials</li><li>Access sustainability-focused buyers</li><li>Provenance documentation included</li><li>Premium pricing for certified supply</li><li>Transaction management</li></ul>
                     </div>
-                    <div class="capability-right">
-                        <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--cream); margin-bottom: 1rem;">Who Uses STRIA Data</h4>
-                        <div class="who-uses-card" onclick="showTab('onboard')" style="cursor: pointer;">
-                            <span class="who-uses-icon">⛏️</span>
-                            <div class="who-uses-text">
-                                <h4>Mines</h4>
-                                <p>Get certified, prove compliance, access premium markets</p>
-                            </div>
-                        </div>
-                        <div class="who-uses-card" onclick="showTab('onboard')" style="cursor: pointer;">
-                            <span class="who-uses-icon">🏦</span>
-                            <div class="who-uses-text">
-                                <h4>Banks & Lenders</h4>
-                                <p>ESG data for lending decisions</p>
-                            </div>
-                        </div>
-                        <div class="who-uses-card" onclick="showTab('onboard')" style="cursor: pointer;">
-                            <span class="who-uses-icon">🛡️</span>
-                            <div class="who-uses-text">
-                                <h4>Insurers</h4>
-                                <p>Risk assessment, claims verification</p>
-                            </div>
-                        </div>
-                        <div class="who-uses-card" onclick="showTab('onboard')" style="cursor: pointer;">
-                            <span class="who-uses-icon">👑</span>
-                            <div class="who-uses-text">
-                                <h4>Luxury Brands</h4>
-                                <p>Brand-safe supply chain sourcing</p>
-                            </div>
-                        </div>
+                    <div class="serve-card" onclick="showTab('onboard')">
+                        <div class="serve-card-header"><span class="serve-icon">💎</span><div><h3 class="serve-title">Buyers</h3><p class="serve-subtitle">Jewelers, Refiners, Brands</p></div></div>
+                        <ul class="serve-features"><li>Source verified materials</li><li>Meet compliance requirements</li><li>Full chain of custody</li><li>ESG reporting ready</li><li>Provenance transfers to products</li></ul>
                     </div>
                 </div>
-                
-                <div style="text-align: center; margin-top: 3rem;">
-                    <button class="btn-primary" onclick="showTab('onboard')" style="font-size: 1rem; padding: 1rem 3rem;">Get STRIA Certified →</button>
-                </div>
+                <div style="text-align: center; margin-top: 3rem;"><button class="btn-primary" onclick="showTab('onboard')" style="font-size: 1rem; padding: 1rem 3rem;">Join the Marketplace →</button></div>
             </div>
         </section>
-
-        <!-- Ecosystem Connection -->
         <section class="ecosystem-section">
             <div class="container">
-                <div class="ecosystem-badge">
-                    <div class="ecosystem-badge-icon">EU</div>
-                    <div class="ecosystem-badge-text">Part of the <strong>Element United</strong> ecosystem</div>
-                </div>
-                <p class="ecosystem-tagline">"STRIA verifies at source. CORE tokenizes. MineralTrace connects. Alchemy transforms. NextHeir preserves."</p>
+                <div class="ecosystem-badge"><div class="ecosystem-badge-icon">EU</div><div class="ecosystem-badge-text">Part of the <strong>Element United</strong> ecosystem</div></div>
+                <p class="ecosystem-tagline">"STRIA verifies. CORE tokenizes. MineralTrace connects. Alchemy transforms. NextHeir preserves."</p>
                 <a href="#" class="ecosystem-link">Explore the full ecosystem →</a>
             </div>
         </section>
     </div>
-
-    <!-- Registry Tab -->
-    <div id="registry-tab" class="tab-content">
-        <section class="section registry-section">
+    <div id="marketplace-tab" class="tab-content">
+        <section class="section features-section">
             <div class="container">
-                <div class="section-header">
-                    <p class="section-label">STRIA Registry</p>
-                    <h2 class="section-title">Certified Mining Operations</h2>
-                    <p class="section-subtitle">Verified mines with transparent compliance data</p>
+                <div class="section-header"><p class="section-label">Platform Features</p><h2 class="section-title">How MineralTrace Works</h2><p class="section-subtitle">End-to-end B2B marketplace for verified minerals</p></div>
+                <div class="features-grid">
+                    <div class="feature-card"><div class="feature-icon">🔍</div><h4 class="feature-title">Verified Discovery</h4><p class="feature-desc">Search STRIA-certified suppliers by mineral, location, certification level, and capacity.</p></div>
+                    <div class="feature-card"><div class="feature-icon">📋</div><h4 class="feature-title">Compliance Matching</h4><p class="feature-desc">Match your requirements (EU CSRD, CSDDD, Dodd-Frank) with certified supply.</p></div>
+                    <div class="feature-card"><div class="feature-icon">🔗</div><h4 class="feature-title">Provenance Transfer</h4><p class="feature-desc">Chain of custody automatically transfers with each transaction.</p></div>
+                    <div class="feature-card"><div class="feature-icon">📊</div><h4 class="feature-title">ESG Reporting</h4><p class="feature-desc">Generate compliance reports directly from your transaction history.</p></div>
+                    <div class="feature-card"><div class="feature-icon">💰</div><h4 class="feature-title">Escrow & Payments</h4><p class="feature-desc">Secure transactions with built-in escrow and payment processing.</p></div>
+                    <div class="feature-card"><div class="feature-icon">📱</div><h4 class="feature-title">QR Verification</h4><p class="feature-desc">Every shipment includes scannable verification linked to blockchain records.</p></div>
                 </div>
-
-                <div class="registry-filters">
-                    <select class="filter-select">
-                        <option>All Certification Levels</option>
-                        <option>Level 6: LCA Prestige</option>
-                        <option>Level 5: Certified with Distinction</option>
-                        <option>Level 4: Independently Audited</option>
-                        <option>Level 3: Verified Practices</option>
-                        <option>Level 2: Trace Initiated</option>
-                        <option>Level 1: Registered</option>
-                    </select>
-                    <select class="filter-select">
-                        <option>All Minerals</option>
-                        <option>Gold</option>
-                        <option>Silver</option>
-                        <option>Copper</option>
-                        <option>Lithium</option>
-                    </select>
-                    <select class="filter-select">
-                        <option>All Countries</option>
-                        <option>Tanzania</option>
-                        <option>Canada</option>
-                        <option>Chile</option>
-                        <option>USA</option>
-                        <option>Peru</option>
-                        <option>Australia</option>
-                    </select>
-                </div>
-
-                <div class="mine-grid" id="mine-grid">
-                    <!-- Populated by JS -->
-                </div>
+                <div style="text-align: center; margin-top: 3rem;"><button class="btn-primary" onclick="showTab('onboard')" style="font-size: 1rem; padding: 1rem 3rem;">Request Access →</button></div>
             </div>
         </section>
     </div>
-
-    <!-- Levels Tab -->
-    <div id="levels-tab" class="tab-content">
-        <section class="section levels-section">
-            <div class="container">
-                <div class="section-header">
-                    <p class="section-label">Certification Framework</p>
-                    <h2 class="section-title">Certification Levels</h2>
-                    <p class="section-subtitle">Progressive standards for responsible mining</p>
-                </div>
-
-                <div class="levels-grid">
-                    <div class="level-item">
-                        <div class="level-badge l1">1</div>
-                        <div class="level-name">Registered</div>
-                        <div class="level-desc">Entry-level registration. Basic documentation submitted. Beginning the certification journey.</div>
-                    </div>
-                    <div class="level-item">
-                        <div class="level-badge l2">2</div>
-                        <div class="level-name">Trace Initiated</div>
-                        <div class="level-desc">Supply chain tracing has begun. Preliminary data collection. Self-reported compliance metrics.</div>
-                    </div>
-                    <div class="level-item">
-                        <div class="level-badge l3">3</div>
-                        <div class="level-name">Verified Practices</div>
-                        <div class="level-desc">Third-party verification of key practices. Environmental and labor standards documented.</div>
-                    </div>
-                    <div class="level-item">
-                        <div class="level-badge l4">4</div>
-                        <div class="level-name">Independently Audited</div>
-                        <div class="level-desc">Full independent audit completed. ESG compliance verified. Indigenous consent documented.</div>
-                    </div>
-                    <div class="level-item">
-                        <div class="level-badge l5">5</div>
-                        <div class="level-name">Certified with Distinction</div>
-                        <div class="level-desc">Excellence in all categories. Community benefit programs active. Carbon reduction targets met.</div>
-                    </div>
-                    <div class="level-item">
-                        <div class="level-badge l6">6</div>
-                        <div class="level-name">LCA Prestige</div>
-                        <div class="level-desc">Full lifecycle assessment. Net-positive environmental impact. Industry leadership in responsible mining.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Verify Tab -->
-    <div id="verify-tab" class="tab-content">
-        <section class="section verify-section">
-            <div class="container">
-                <div class="section-header">
-                    <p class="section-label">Certificate Verification</p>
-                    <h2 class="section-title">Verify Authenticity</h2>
-                    <p class="section-subtitle">Confirm STRIA certificates and trace supply chain integrity</p>
-                </div>
-
-                <div class="verify-box">
-                    <label class="verify-label">Enter Certificate ID or Batch Number</label>
-                    <input type="text" class="verify-input" placeholder="e.g., STRIA-2024-001 or BATCH-TZ-2024-456">
-                    <button class="btn-primary" style="width: 100%;">Verify Certificate</button>
-                </div>
-
-                <div class="verify-actions">
-                    <div class="verify-action">
-                        <div class="verify-action-icon">📱</div>
-                        <div class="verify-action-title">QR Scanner</div>
-                        <div class="verify-action-desc">Scan product QR codes</div>
-                    </div>
-                    <div class="verify-action">
-                        <div class="verify-action-icon">🔍</div>
-                        <div class="verify-action-title">Batch Lookup</div>
-                        <div class="verify-action-desc">Track specific batches</div>
-                    </div>
-                    <div class="verify-action">
-                        <div class="verify-action-icon">📊</div>
-                        <div class="verify-action-title">Audit Reports</div>
-                        <div class="verify-action-desc">Public compliance docs</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Partners Tab -->
     <div id="partners-tab" class="tab-content">
         <section class="section partners-section">
             <div class="container">
-                <div class="section-header">
-                    <p class="section-label">STRIA Network</p>
-                    <h2 class="section-title">Partner Network</h2>
-                    <p class="section-subtitle">Who plugs into STRIA verification</p>
-                </div>
-
+                <div class="section-header"><p class="section-label">MineralTrace Network</p><h2 class="section-title">Partner Network</h2><p class="section-subtitle">Who connects through MineralTrace</p></div>
                 <div class="partners-grid">
-                    <div class="partner-card">
-                        <div class="partner-emoji">⛏️</div>
-                        <h4 class="partner-name">Mining Operations</h4>
-                        <p class="partner-desc">Get certified. Prove compliance. Access premium markets.</p>
-                    </div>
-                    <div class="partner-card">
-                        <div class="partner-emoji">📋</div>
-                        <h4 class="partner-name">ESG Auditors</h4>
-                        <p class="partner-desc">Verify standards. Issue certifications. Feed the registry.</p>
-                    </div>
-                    <div class="partner-card">
-                        <div class="partner-emoji">🏦</div>
-                        <h4 class="partner-name">Banks & Lenders</h4>
-                        <p class="partner-desc">ESG data for lending decisions. Compliance verification.</p>
-                    </div>
-                    <div class="partner-card">
-                        <div class="partner-emoji">🛡️</div>
-                        <h4 class="partner-name">Insurance Companies</h4>
-                        <p class="partner-desc">Risk assessment. Claims verification. Provenance data.</p>
-                    </div>
-                    <div class="partner-card">
-                        <div class="partner-emoji">🏛️</div>
-                        <h4 class="partner-name">Mining Associations</h4>
-                        <p class="partner-desc">Industry standards. Member certification. Collective compliance.</p>
-                    </div>
-                    <div class="partner-card">
-                        <div class="partner-emoji">🌍</div>
-                        <h4 class="partner-name">NGOs & Watchdogs</h4>
-                        <p class="partner-desc">Transparency partners. Verification oversight. Trust anchors.</p>
-                    </div>
-                    <div class="partner-card">
-                        <div class="partner-emoji">🪶</div>
-                        <h4 class="partner-name">Indigenous Communities</h4>
-                        <p class="partner-desc">Consent verification. Community benefit tracking. Land rights.</p>
-                    </div>
-                    <div class="partner-card">
-                        <div class="partner-emoji">📊</div>
-                        <h4 class="partner-name">Compliance Platforms</h4>
-                        <p class="partner-desc">API integration. Automated reporting. Regulatory feeds.</p>
-                    </div>
-                    <div class="partner-card">
-                        <div class="partner-emoji">🤝</div>
-                        <h4 class="partner-name">White Label Partners</h4>
-                        <p class="partner-desc">Your brand. Our verification. STRIA under the hood.</p>
-                    </div>
+                    <div class="partner-card"><div class="partner-emoji">⛏️</div><h4 class="partner-name">Certified Mines</h4><p class="partner-desc">STRIA-verified operations listing materials.</p></div>
+                    <div class="partner-card"><div class="partner-emoji">💍</div><h4 class="partner-name">Jewelry Retailers</h4><p class="partner-desc">Brands sourcing verified materials.</p></div>
+                    <div class="partner-card"><div class="partner-emoji">🏭</div><h4 class="partner-name">Refiners</h4><p class="partner-desc">Processing with chain of custody.</p></div>
+                    <div class="partner-card"><div class="partner-emoji">👑</div><h4 class="partner-name">Luxury Brands</h4><p class="partner-desc">High-end houses requiring provenance.</p></div>
+                    <div class="partner-card"><div class="partner-emoji">📈</div><h4 class="partner-name">Trading Platforms</h4><p class="partner-desc">Integration for commodity trading.</p></div>
+                    <div class="partner-card"><div class="partner-emoji">🏛️</div><h4 class="partner-name">Industry Groups</h4><p class="partner-desc">Associations promoting responsible sourcing.</p></div>
+                    <div class="partner-card"><div class="partner-emoji">🏦</div><h4 class="partner-name">Trade Finance</h4><p class="partner-desc">Lenders using MineralTrace data.</p></div>
+                    <div class="partner-card"><div class="partner-emoji">📊</div><h4 class="partner-name">Compliance Platforms</h4><p class="partner-desc">ESG tools integrating our data.</p></div>
+                    <div class="partner-card"><div class="partner-emoji">🤝</div><h4 class="partner-name">White Label</h4><p class="partner-desc">Your marketplace. Our infrastructure.</p></div>
                 </div>
-
-                <div style="text-align: center; margin-top: 3rem;">
-                    <button class="btn-primary" onclick="showTab('onboard')" style="font-size: 1rem; padding: 1rem 3rem;">Join the Network →</button>
-                </div>
+                <div style="text-align: center; margin-top: 3rem;"><button class="btn-primary" onclick="showTab('onboard')" style="font-size: 1rem; padding: 1rem 3rem;">Become a Partner →</button></div>
             </div>
         </section>
     </div>
-
-    <!-- Get Started Tab -->
     <div id="onboard-tab" class="tab-content">
         <section class="section onboard-section">
             <div class="container">
-                <div class="section-header">
-                    <p class="section-label">Get Started</p>
-                    <h2 class="section-title">How Will You Use STRIA?</h2>
-                    <p class="section-subtitle">Select your path to begin</p>
-                </div>
-
-                <!-- Path Selection -->
+                <div class="section-header"><p class="section-label">Get Started</p><h2 class="section-title">How Will You Use MineralTrace?</h2><p class="section-subtitle">Select your path to join the marketplace</p></div>
                 <div class="onboard-paths">
-                    <div class="onboard-path" onclick="selectPath('mine')">
-                        <div class="onboard-path-icon">⛏️</div>
-                        <h3 class="onboard-path-title">Mining Operation</h3>
-                        <p class="onboard-path-desc">Get STRIA certified. Prove ethical sourcing. Access premium markets.</p>
-                    </div>
-                    <div class="onboard-path" onclick="selectPath('buyer')">
-                        <div class="onboard-path-icon">💎</div>
-                        <h3 class="onboard-path-title">Buyer / Brand</h3>
-                        <p class="onboard-path-desc">Source verified materials. Meet compliance requirements. Build trust.</p>
-                    </div>
-                    <div class="onboard-path" onclick="selectPath('auditor')">
-                        <div class="onboard-path-icon">✅</div>
-                        <h3 class="onboard-path-title">Auditor / NGO</h3>
-                        <p class="onboard-path-desc">Join our verification network. Conduct audits. Ensure standards.</p>
-                    </div>
+                    <div class="onboard-path" onclick="selectPath('seller')"><div class="onboard-path-icon">⛏️</div><h3 class="onboard-path-title">Seller</h3><p class="onboard-path-desc">List verified materials. Connect with buyers.</p></div>
+                    <div class="onboard-path" onclick="selectPath('buyer')"><div class="onboard-path-icon">💎</div><h3 class="onboard-path-title">Buyer</h3><p class="onboard-path-desc">Source certified materials. Meet compliance.</p></div>
+                    <div class="onboard-path" onclick="selectPath('partner')"><div class="onboard-path-icon">🤝</div><h3 class="onboard-path-title">Partner</h3><p class="onboard-path-desc">Integrate, white-label, or join the network.</p></div>
                 </div>
-
-                <!-- Mine Application Form -->
-                <div id="mine-form" class="onboard-form-container">
+                <div id="seller-form" class="onboard-form-container">
                     <div class="form-card">
-                        <div class="form-steps">
-                            <div class="form-step active" id="mine-step-1-ind"></div>
-                            <div class="form-step" id="mine-step-2-ind"></div>
-                            <div class="form-step" id="mine-step-3-ind"></div>
+                        <div class="form-header"><h3>Seller Registration</h3><p>List your verified materials on MineralTrace</p></div>
+                        <div class="stria-check">
+                            <div class="stria-check-header"><div class="stria-check-icon">S</div><div class="stria-check-title">STRIA Certification Required</div></div>
+                            <p style="font-size: 0.85rem; color: var(--champagne); margin-bottom: 1rem;">MineralTrace only lists STRIA-certified materials. Is your operation certified?</p>
+                            <div class="stria-options">
+                                <div class="stria-option" onclick="selectStria('yes', this)">Yes, certified</div>
+                                <div class="stria-option" onclick="selectStria('pending', this)">In progress</div>
+                                <div class="stria-option" onclick="selectStria('no', this)">Not yet</div>
+                            </div>
+                            <div id="stria-redirect" class="stria-redirect"><p>You'll need STRIA certification to list on MineralTrace. Start your application:</p><a href="stria-registry.html">Apply for STRIA Certification →</a></div>
                         </div>
-
-                        <!-- Step 1: Basic Info -->
-                        <div id="mine-step-1" class="form-step-content">
-                            <div class="form-header">
-                                <h3>STRIA™ Certification Application</h3>
-                                <p>Mining operation details</p>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label class="form-label">Operation Name <span class="required">*</span></label>
-                                    <input type="text" class="form-input" placeholder="e.g., Northern Gold Mining Co.">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Country <span class="required">*</span></label>
-                                    <select class="form-select">
-                                        <option value="">Select country...</option>
-                                        <option value="CA">Canada</option>
-                                        <option value="US">United States</option>
-                                        <option value="AU">Australia</option>
-                                        <option value="TZ">Tanzania</option>
-                                        <option value="PE">Peru</option>
-                                        <option value="CL">Chile</option>
-                                        <option value="ZA">South Africa</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Primary Minerals <span class="required">*</span></label>
-                                <div class="checkbox-group">
-                                    <label class="checkbox-item">
-                                        <input type="checkbox">
-                                        <div class="checkbox-label">
-                                            <strong>Gold</strong>
-                                            <span>Primary or byproduct gold production</span>
-                                        </div>
-                                    </label>
-                                    <label class="checkbox-item">
-                                        <input type="checkbox">
-                                        <div class="checkbox-label">
-                                            <strong>Silver</strong>
-                                            <span>Primary or byproduct silver production</span>
-                                        </div>
-                                    </label>
-                                    <label class="checkbox-item">
-                                        <input type="checkbox">
-                                        <div class="checkbox-label">
-                                            <strong>Copper</strong>
-                                            <span>Copper ore extraction and processing</span>
-                                        </div>
-                                    </label>
-                                    <label class="checkbox-item">
-                                        <input type="checkbox">
-                                        <div class="checkbox-label">
-                                            <strong>Lithium</strong>
-                                            <span>Lithium for battery and tech applications</span>
-                                        </div>
-                                    </label>
-                                    <label class="checkbox-item">
-                                        <input type="checkbox">
-                                        <div class="checkbox-label">
-                                            <strong>Other</strong>
-                                            <span>Gemstones, rare earths, other minerals</span>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label class="form-label">Annual Production Volume</label>
-                                    <input type="text" class="form-input" placeholder="e.g., 50,000 oz gold equivalent">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Operation Type</label>
-                                    <select class="form-select">
-                                        <option value="">Select type...</option>
-                                        <option value="openpit">Open Pit</option>
-                                        <option value="underground">Underground</option>
-                                        <option value="placer">Placer/Alluvial</option>
-                                        <option value="artisanal">Artisanal/Small-Scale</option>
-                                        <option value="mixed">Mixed Operations</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-nav">
-                                <div></div>
-                                <button class="form-nav-next" onclick="nextStep('mine', 2)">Continue →</button>
-                            </div>
+                        <div id="seller-continue" style="display: none;">
+                            <div class="form-row"><div class="form-group"><label class="form-label">Operation Name <span class="required">*</span></label><input type="text" class="form-input" placeholder="Mining operation name"></div><div class="form-group"><label class="form-label">STRIA Certificate ID <span class="required">*</span></label><input type="text" class="form-input" placeholder="e.g., STRIA-2024-001"></div></div>
+                            <div class="form-group"><label class="form-label">Materials to List <span class="required">*</span></label><div class="checkbox-group"><label class="checkbox-item"><input type="checkbox"><div class="checkbox-label"><strong>Gold</strong><span>Bars, grain, doré</span></div></label><label class="checkbox-item"><input type="checkbox"><div class="checkbox-label"><strong>Silver</strong><span>Bars, grain</span></div></label><label class="checkbox-item"><input type="checkbox"><div class="checkbox-label"><strong>Copper</strong><span>Concentrate, cathode</span></div></label><label class="checkbox-item"><input type="checkbox"><div class="checkbox-label"><strong>Gemstones</strong><span>Rough or cut stones</span></div></label></div></div>
+                            <div class="form-row"><div class="form-group"><label class="form-label">Contact Name <span class="required">*</span></label><input type="text" class="form-input" placeholder="Full name"></div><div class="form-group"><label class="form-label">Email <span class="required">*</span></label><input type="email" class="form-input" placeholder="you@company.com"></div></div>
+                            <div class="form-nav"><div></div><button class="form-nav-next" onclick="submitForm('seller')">Register as Seller →</button></div>
                         </div>
-
-                        <!-- Step 2: Compliance -->
-                        <div id="mine-step-2" class="form-step-content" style="display: none;">
-                            <div class="form-header">
-                                <h3>Current Compliance Status</h3>
-                                <p>Existing certifications and practices</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Existing Certifications</label>
-                                <div class="checkbox-group">
-                                    <label class="checkbox-item">
-                                        <input type="checkbox">
-                                        <div class="checkbox-label">
-                                            <strong>ISO 14001</strong>
-                                            <span>Environmental Management System</span>
-                                        </div>
-                                    </label>
-                                    <label class="checkbox-item">
-                                        <input type="checkbox">
-                                        <div class="checkbox-label">
-                                            <strong>Responsible Mining Initiative (RMI)</strong>
-                                            <span>Cross-industry responsible sourcing</span>
-                                        </div>
-                                    </label>
-                                    <label class="checkbox-item">
-                                        <input type="checkbox">
-                                        <div class="checkbox-label">
-                                            <strong>LBMA Responsible Gold</strong>
-                                            <span>London Bullion Market Association</span>
-                                        </div>
-                                    </label>
-                                    <label class="checkbox-item">
-                                        <input type="checkbox">
-                                        <div class="checkbox-label">
-                                            <strong>Fairmined / Fairtrade Gold</strong>
-                                            <span>Artisanal mining certification</span>
-                                        </div>
-                                    </label>
-                                    <label class="checkbox-item">
-                                        <input type="checkbox">
-                                        <div class="checkbox-label">
-                                            <strong>None yet</strong>
-                                            <span>STRIA will be our first certification</span>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Target STRIA Level</label>
-                                <select class="form-select">
-                                    <option value="">Select target level...</option>
-                                    <option value="2">Level 2: Trace Initiated</option>
-                                    <option value="3">Level 3: Verified Practices</option>
-                                    <option value="4">Level 4: Independently Audited</option>
-                                    <option value="5">Level 5: Certified with Distinction</option>
-                                    <option value="6">Level 6: LCA Prestige</option>
-                                    <option value="unsure">Not sure — help me decide</option>
-                                </select>
-                                <p class="form-hint">Most operations start at Level 2-3 and progress over time</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Indigenous/Community Considerations</label>
-                                <textarea class="form-textarea" placeholder="Describe any Indigenous community relationships, land agreements, or community benefit programs..."></textarea>
-                            </div>
-
-                            <div class="form-nav">
-                                <button class="form-nav-back" onclick="prevStep('mine', 1)">← Back</button>
-                                <button class="form-nav-next" onclick="nextStep('mine', 3)">Continue →</button>
-                            </div>
-                        </div>
-
-                        <!-- Step 3: Contact -->
-                        <div id="mine-step-3" class="form-step-content" style="display: none;">
-                            <div class="form-header">
-                                <h3>Contact Information</h3>
-                                <p>Who should we contact about your application?</p>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label class="form-label">Contact Name <span class="required">*</span></label>
-                                    <input type="text" class="form-input" placeholder="Full name">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Title/Role <span class="required">*</span></label>
-                                    <input type="text" class="form-input" placeholder="e.g., Sustainability Director">
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label class="form-label">Email <span class="required">*</span></label>
-                                    <input type="email" class="form-input" placeholder="you@company.com">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Phone</label>
-                                    <input type="tel" class="form-input" placeholder="+1 (555) 000-0000">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Supporting Documents</label>
-                                <div class="file-upload">
-                                    <div class="file-upload-icon">📄</div>
-                                    <div class="file-upload-text">Upload company profile, existing certifications, or ESG reports</div>
-                                    <div class="file-upload-hint">PDF, DOC up to 25MB (optional)</div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Additional Notes</label>
-                                <textarea class="form-textarea" placeholder="Anything else we should know about your operation or certification goals?"></textarea>
-                            </div>
-
-                            <div class="form-nav">
-                                <button class="form-nav-back" onclick="prevStep('mine', 2)">← Back</button>
-                                <button class="form-nav-next" onclick="submitForm('mine')">Submit Application →</button>
-                            </div>
-                        </div>
-
-                        <!-- Success -->
-                        <div id="mine-success" class="form-success">
-                            <div class="form-success-icon">✓</div>
-                            <h3>Application Received</h3>
-                            <p>Your STRIA™ certification application has been submitted.</p>
-                            <p style="font-size: 0.85rem; color: var(--text-muted);">Reference: STRIA-APP-2025-XXX</p>
-                            <div class="next-steps">
-                                <h4>What Happens Next</h4>
-                                <ul>
-                                    <li>Initial review by our certification team (2-3 business days)</li>
-                                    <li>Discovery call to discuss your operation</li>
-                                    <li>Gap analysis and certification roadmap</li>
-                                    <li>Auditor assignment and scheduling</li>
-                                    <li>On-site verification (Level 3+)</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <div id="seller-success" class="form-success"><div class="form-success-icon">⛏️</div><h3>Registration Received</h3><p>Welcome to the MineralTrace seller network.</p><div class="next-steps"><h4>What Happens Next</h4><ul><li>STRIA certification verification (1-2 days)</li><li>Account setup and onboarding call</li><li>Create your first material listings</li><li>Connect with verified buyers</li></ul></div></div>
                     </div>
                 </div>
-
-                <!-- Buyer Registration Form -->
                 <div id="buyer-form" class="onboard-form-container">
                     <div class="form-card">
-                        <div class="form-header">
-                            <h3>Verified Buyer Registration</h3>
-                            <p>Access STRIA-certified supply chains</p>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="form-label">Company Name <span class="required">*</span></label>
-                                <input type="text" class="form-input" placeholder="Your company">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Website</label>
-                                <input type="url" class="form-input" placeholder="https://...">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Company Type <span class="required">*</span></label>
-                            <select class="form-select">
-                                <option value="">Select type...</option>
-                                <option value="jewelry">Jewelry Brand / Retailer</option>
-                                <option value="manufacturer">Jewelry Manufacturer</option>
-                                <option value="refiner">Refiner / Processor</option>
-                                <option value="luxury">Luxury Goods Brand</option>
-                                <option value="tech">Technology / Electronics</option>
-                                <option value="investor">Investment / Financial</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">What are you sourcing? <span class="required">*</span></label>
-                            <div class="checkbox-group">
-                                <label class="checkbox-item">
-                                    <input type="checkbox">
-                                    <div class="checkbox-label">
-                                        <strong>Gold</strong>
-                                        <span>Bars, grain, or refined gold</span>
-                                    </div>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox">
-                                    <div class="checkbox-label">
-                                        <strong>Silver</strong>
-                                        <span>Bars or refined silver</span>
-                                    </div>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox">
-                                    <div class="checkbox-label">
-                                        <strong>Gemstones</strong>
-                                        <span>Diamonds, colored stones</span>
-                                    </div>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox">
-                                    <div class="checkbox-label">
-                                        <strong>Critical Minerals</strong>
-                                        <span>Lithium, cobalt, rare earths</span>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Annual Sourcing Volume</label>
-                            <input type="text" class="form-input" placeholder="e.g., $5M annually, 10,000 oz gold">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Compliance Requirements</label>
-                            <div class="checkbox-group">
-                                <label class="checkbox-item">
-                                    <input type="checkbox">
-                                    <div class="checkbox-label">
-                                        <strong>EU CSRD</strong>
-                                        <span>Corporate Sustainability Reporting Directive</span>
-                                    </div>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox">
-                                    <div class="checkbox-label">
-                                        <strong>EU CSDDD</strong>
-                                        <span>Corporate Sustainability Due Diligence Directive</span>
-                                    </div>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox">
-                                    <div class="checkbox-label">
-                                        <strong>Dodd-Frank Section 1502</strong>
-                                        <span>Conflict minerals disclosure</span>
-                                    </div>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox">
-                                    <div class="checkbox-label">
-                                        <strong>Internal ESG Goals</strong>
-                                        <span>Company sustainability commitments</span>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="form-label">Contact Name <span class="required">*</span></label>
-                                <input type="text" class="form-input" placeholder="Full name">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Email <span class="required">*</span></label>
-                                <input type="email" class="form-input" placeholder="you@company.com">
-                            </div>
-                        </div>
-
-                        <div class="form-nav">
-                            <div></div>
-                            <button class="form-nav-next" onclick="submitForm('buyer')">Register as Buyer →</button>
-                        </div>
-
-                        <!-- Success -->
-                        <div id="buyer-success" class="form-success">
-                            <div class="form-success-icon">💎</div>
-                            <h3>Registration Received</h3>
-                            <p>Welcome to the STRIA verified buyer network.</p>
-                            <div class="next-steps">
-                                <h4>What Happens Next</h4>
-                                <ul>
-                                    <li>Verification of your company (1-2 business days)</li>
-                                    <li>Access to STRIA Registry dashboard</li>
-                                    <li>Connect with certified suppliers via MineralTrace</li>
-                                    <li>Compliance documentation and reporting tools</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <div class="form-header"><h3>Buyer Registration</h3><p>Access verified, certified materials</p></div>
+                        <div class="form-row"><div class="form-group"><label class="form-label">Company Name <span class="required">*</span></label><input type="text" class="form-input" placeholder="Your company"></div><div class="form-group"><label class="form-label">Website</label><input type="url" class="form-input" placeholder="https://..."></div></div>
+                        <div class="form-group"><label class="form-label">Company Type <span class="required">*</span></label><select class="form-select"><option value="">Select type...</option><option value="jewelry-brand">Jewelry Brand</option><option value="jewelry-mfg">Jewelry Manufacturer</option><option value="refiner">Refiner / Processor</option><option value="luxury">Luxury Goods</option><option value="tech">Technology / Electronics</option><option value="other">Other</option></select></div>
+                        <div class="form-group"><label class="form-label">What are you sourcing? <span class="required">*</span></label><div class="checkbox-group"><label class="checkbox-item"><input type="checkbox"><div class="checkbox-label"><strong>Gold</strong><span>Bars, grain, refined</span></div></label><label class="checkbox-item"><input type="checkbox"><div class="checkbox-label"><strong>Silver</strong><span>Bars, grain</span></div></label><label class="checkbox-item"><input type="checkbox"><div class="checkbox-label"><strong>Gemstones</strong><span>Diamonds, colored stones</span></div></label><label class="checkbox-item"><input type="checkbox"><div class="checkbox-label"><strong>Other Minerals</strong><span>Copper, lithium, etc.</span></div></label></div></div>
+                        <div class="form-row"><div class="form-group"><label class="form-label">Contact Name <span class="required">*</span></label><input type="text" class="form-input" placeholder="Full name"></div><div class="form-group"><label class="form-label">Email <span class="required">*</span></label><input type="email" class="form-input" placeholder="you@company.com"></div></div>
+                        <div class="form-nav"><div></div><button class="form-nav-next" onclick="submitForm('buyer')">Register as Buyer →</button></div>
+                        <div id="buyer-success" class="form-success"><div class="form-success-icon">💎</div><h3>Registration Received</h3><p>Welcome to the MineralTrace buyer network.</p><div class="next-steps"><h4>What Happens Next</h4><ul><li>Company verification (1-2 days)</li><li>Platform access and onboarding</li><li>Browse certified suppliers</li><li>Connect and transact</li></ul></div></div>
                     </div>
                 </div>
-
-                <!-- Auditor Application Form -->
-                <div id="auditor-form" class="onboard-form-container">
+                <div id="partner-form" class="onboard-form-container">
                     <div class="form-card">
-                        <div class="form-header">
-                            <h3>Auditor Network Application</h3>
-                            <p>Join our verification and audit network</p>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="form-label">Organization Name <span class="required">*</span></label>
-                                <input type="text" class="form-input" placeholder="Organization name">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Organization Type <span class="required">*</span></label>
-                                <select class="form-select">
-                                    <option value="">Select type...</option>
-                                    <option value="auditor">Audit Firm</option>
-                                    <option value="ngo">NGO / Non-Profit</option>
-                                    <option value="community">Community Organization</option>
-                                    <option value="indigenous">Indigenous Council</option>
-                                    <option value="consultant">ESG Consultant</option>
-                                    <option value="academic">Academic / Research</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Areas of Expertise <span class="required">*</span></label>
-                            <div class="checkbox-group">
-                                <label class="checkbox-item">
-                                    <input type="checkbox">
-                                    <div class="checkbox-label">
-                                        <strong>Environmental Auditing</strong>
-                                        <span>Emissions, water, biodiversity, reclamation</span>
-                                    </div>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox">
-                                    <div class="checkbox-label">
-                                        <strong>Social / Labor Auditing</strong>
-                                        <span>Worker safety, human rights, fair labor</span>
-                                    </div>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox">
-                                    <div class="checkbox-label">
-                                        <strong>Governance</strong>
-                                        <span>Anti-corruption, transparency, compliance</span>
-                                    </div>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox">
-                                    <div class="checkbox-label">
-                                        <strong>Indigenous Rights / FPIC</strong>
-                                        <span>Free, Prior, Informed Consent verification</span>
-                                    </div>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox">
-                                    <div class="checkbox-label">
-                                        <strong>Supply Chain Traceability</strong>
-                                        <span>Chain of custody, provenance verification</span>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Geographic Coverage</label>
-                            <input type="text" class="form-input" placeholder="e.g., East Africa, South America, Global">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Relevant Certifications / Accreditations</label>
-                            <textarea class="form-textarea" placeholder="List any relevant certifications (ISO 17021, APSCA, etc.) or accreditations your organization holds..."></textarea>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="form-label">Contact Name <span class="required">*</span></label>
-                                <input type="text" class="form-input" placeholder="Full name">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Email <span class="required">*</span></label>
-                                <input type="email" class="form-input" placeholder="you@organization.org">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Why do you want to join the STRIA network?</label>
-                            <textarea class="form-textarea" placeholder="Tell us about your interest in responsible mining verification..."></textarea>
-                        </div>
-
-                        <div class="form-nav">
-                            <div></div>
-                            <button class="form-nav-next" onclick="submitForm('auditor')">Submit Application →</button>
-                        </div>
-
-                        <!-- Success -->
-                        <div id="auditor-success" class="form-success">
-                            <div class="form-success-icon">✅</div>
-                            <h3>Application Received</h3>
-                            <p>Thank you for your interest in the STRIA auditor network.</p>
-                            <div class="next-steps">
-                                <h4>What Happens Next</h4>
-                                <ul>
-                                    <li>Credentials review by our standards team</li>
-                                    <li>Interview and alignment discussion</li>
-                                    <li>STRIA methodology training (if approved)</li>
-                                    <li>Network onboarding and first assignment</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <div class="form-header"><h3>Partnership Inquiry</h3><p>Integrate with or white-label MineralTrace</p></div>
+                        <div class="form-row"><div class="form-group"><label class="form-label">Organization <span class="required">*</span></label><input type="text" class="form-input" placeholder="Organization name"></div><div class="form-group"><label class="form-label">Website</label><input type="url" class="form-input" placeholder="https://..."></div></div>
+                        <div class="form-group"><label class="form-label">Organization Type <span class="required">*</span></label><select class="form-select"><option value="">Select type...</option><option value="trading">Trading Platform</option><option value="industry">Industry Association</option><option value="finance">Trade Finance</option><option value="compliance">Compliance Platform</option><option value="tech">Technology Provider</option><option value="other">Other</option></select></div>
+                        <div class="form-group"><label class="form-label">Partnership Interest <span class="required">*</span></label><div class="checkbox-group"><label class="checkbox-item"><input type="checkbox"><div class="checkbox-label"><strong>API Integration</strong><span>Connect your platform to MineralTrace</span></div></label><label class="checkbox-item"><input type="checkbox"><div class="checkbox-label"><strong>White Label</strong><span>MineralTrace under your brand</span></div></label><label class="checkbox-item"><input type="checkbox"><div class="checkbox-label"><strong>Data Partnership</strong><span>Share or consume provenance data</span></div></label><label class="checkbox-item"><input type="checkbox"><div class="checkbox-label"><strong>Referral Partner</strong><span>Refer mines or buyers</span></div></label></div></div>
+                        <div class="form-row"><div class="form-group"><label class="form-label">Contact Name <span class="required">*</span></label><input type="text" class="form-input" placeholder="Full name"></div><div class="form-group"><label class="form-label">Email <span class="required">*</span></label><input type="email" class="form-input" placeholder="you@company.com"></div></div>
+                        <div class="form-group"><label class="form-label">Tell us about your goals</label><textarea class="form-textarea" placeholder="What are you hoping to achieve through partnership?"></textarea></div>
+                        <div class="form-nav"><div></div><button class="form-nav-next" onclick="submitForm('partner')">Submit Inquiry →</button></div>
+                        <div id="partner-success" class="form-success"><div class="form-success-icon">🤝</div><h3>Inquiry Received</h3><p>Our partnerships team will be in touch.</p><div class="next-steps"><h4>What Happens Next</h4><ul><li>Initial review by partnerships team</li><li>Discovery call to understand your needs</li><li>Custom integration proposal</li><li>Technical onboarding</li></ul></div></div>
                     </div>
                 </div>
-
             </div>
         </section>
     </div>
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-logo">STRIA™ Registry</div>
-            <p class="footer-tagline">Standards for Traceable Resource Integrity & Advancement</p>
-            <div class="footer-links">
-                <a href="#" class="footer-link">Element United</a>
-                <a href="#" class="footer-link">MineralTrace</a>
-                <a href="#" class="footer-link">NextHeir</a>
-                <a href="#" class="footer-link">Offset</a>
-            </div>
+            <div class="footer-logo">MineralTrace.earth</div>
+            <p class="footer-tagline">B2B marketplace for verified minerals.</p>
+            <div class="footer-links"><a href="#" class="footer-link">Element United</a><a href="#" class="footer-link">STRIA</a><a href="#" class="footer-link">CORE</a><a href="#" class="footer-link">NextHeir</a></div>
             <p class="footer-bottom">© 2025 Element United. All rights reserved.</p>
         </div>
     </footer>
-
     <script>
-        const mines = [
-            {
-                id: 'TZ-001',
-                name: 'TanzRoc Gold Mining',
-                country: 'Tanzania',
-                mineral: 'Gold',
-                level: 5,
-                levelName: 'Certified with Distinction',
-                compliance: 98,
-                lastAudit: '2024-10-15',
-                traced: 100,
-                emissions: '-18%'
-            },
-            {
-                id: 'CA-045',
-                name: 'Hoffman Yukon Operations',
-                country: 'Canada',
-                mineral: 'Gold',
-                level: 4,
-                levelName: 'Independently Audited',
-                compliance: 95,
-                lastAudit: '2024-11-01',
-                traced: 100,
-                emissions: '-22%'
-            },
-            {
-                id: 'CL-089',
-                name: 'Verde Copper Mining',
-                country: 'Chile',
-                mineral: 'Copper',
-                level: 3,
-                levelName: 'Verified Practices',
-                compliance: 87,
-                lastAudit: '2024-09-20',
-                traced: 95,
-                emissions: '-12%'
-            },
-            {
-                id: 'US-REX',
-                name: 'Rex Mine Gold (Arizona)',
-                country: 'USA',
-                mineral: 'Gold',
-                level: 4,
-                levelName: 'Independently Audited',
-                compliance: 93,
-                lastAudit: '2024-10-28',
-                traced: 98,
-                emissions: '-15%'
-            },
-            {
-                id: 'PE-234',
-                name: 'Andean Silver Co.',
-                country: 'Peru',
-                mineral: 'Silver',
-                level: 2,
-                levelName: 'Trace Initiated',
-                compliance: 72,
-                lastAudit: '2024-08-15',
-                traced: 78,
-                emissions: '-5%'
-            },
-            {
-                id: 'AU-567',
-                name: 'Outback Lithium',
-                country: 'Australia',
-                mineral: 'Lithium',
-                level: 6,
-                levelName: 'LCA Prestige',
-                compliance: 99,
-                lastAudit: '2024-11-05',
-                traced: 100,
-                emissions: '-45%'
-            }
-        ];
-
-        function renderMines() {
-            const grid = document.getElementById('mine-grid');
-            
-            grid.innerHTML = mines.map(mine => `
-                <div class="mine-card">
-                    <div class="mine-header">
-                        <div class="mine-info">
-                            <h3>${mine.name}</h3>
-                            <div class="mine-location">📍 ${mine.country} • ${mine.mineral}</div>
-                        </div>
-                        <div class="cert-badge level-${mine.level}">
-                            Level ${mine.level}
-                        </div>
-                    </div>
-                    <div class="mine-stats">
-                        <div class="mine-stat">
-                            <div class="mine-stat-value">${mine.compliance}</div>
-                            <div class="mine-stat-label">Compliance</div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: ${mine.compliance}%"></div>
-                            </div>
-                        </div>
-                        <div class="mine-stat">
-                            <div class="mine-stat-value">${mine.traced}%</div>
-                            <div class="mine-stat-label">Traced</div>
-                        </div>
-                        <div class="mine-stat">
-                            <div class="mine-stat-value">${mine.emissions}</div>
-                            <div class="mine-stat-label">Emissions</div>
-                        </div>
-                        <div class="mine-stat">
-                            <div class="mine-stat-value" style="font-size: 0.9rem;">${mine.lastAudit}</div>
-                            <div class="mine-stat-label">Last Audit</div>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function showTab(tab) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(t => {
-                t.classList.remove('active');
-            });
-            
-            // Show selected tab
-            document.getElementById(tab + '-tab').classList.add('active');
-            
-            // Update button states
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active');
-                // Keep the Get Started button styled even when not active
-                if (btn.textContent.trim() === 'Get Started' && tab !== 'onboard') {
-                    btn.style.background = 'linear-gradient(135deg, var(--stria-blue) 0%, var(--stria-blue-light) 100%)';
-                    btn.style.color = 'var(--cream)';
-                }
-            });
-            event.target.classList.add('active');
-
-            // Scroll to top of content
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function selectPath(path) {
-            // Remove active from all paths
-            document.querySelectorAll('.onboard-path').forEach(p => {
-                p.classList.remove('active');
-            });
-            
-            // Add active to selected
-            event.currentTarget.classList.add('active');
-            
-            // Hide all forms
-            document.querySelectorAll('.onboard-form-container').forEach(f => {
-                f.classList.remove('active');
-            });
-            
-            // Show selected form
-            document.getElementById(path + '-form').classList.add('active');
-            
-            // Scroll to form
-            setTimeout(() => {
-                document.getElementById(path + '-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
-        }
-
-        function nextStep(form, step) {
-            // Hide current step
-            document.querySelectorAll('#' + form + '-form .form-step-content').forEach(s => {
-                s.style.display = 'none';
-            });
-            
-            // Show next step
-            document.getElementById(form + '-step-' + step).style.display = 'block';
-            
-            // Update step indicators
-            document.querySelectorAll('#' + form + '-form .form-steps .form-step').forEach((s, i) => {
-                s.classList.remove('active');
-                if (i < step - 1) {
-                    s.classList.add('complete');
-                } else if (i === step - 1) {
-                    s.classList.add('active');
-                }
-            });
-            
-            // Scroll to top of form
-            document.getElementById(form + '-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        function prevStep(form, step) {
-            // Hide current step
-            document.querySelectorAll('#' + form + '-form .form-step-content').forEach(s => {
-                s.style.display = 'none';
-            });
-            
-            // Show previous step
-            document.getElementById(form + '-step-' + step).style.display = 'block';
-            
-            // Update step indicators
-            document.querySelectorAll('#' + form + '-form .form-steps .form-step').forEach((s, i) => {
-                s.classList.remove('active', 'complete');
-                if (i < step - 1) {
-                    s.classList.add('complete');
-                } else if (i === step - 1) {
-                    s.classList.add('active');
-                }
-            });
-        }
-
-        function submitForm(form) {
-            // Hide all form content
-            document.querySelectorAll('#' + form + '-form .form-step-content').forEach(s => {
-                s.style.display = 'none';
-            });
-            document.querySelectorAll('#' + form + '-form .form-steps').forEach(s => {
-                s.style.display = 'none';
-            });
-            document.querySelectorAll('#' + form + '-form .form-header').forEach(s => {
-                s.style.display = 'none';
-            });
-            document.querySelectorAll('#' + form + '-form .form-group').forEach(s => {
-                s.style.display = 'none';
-            });
-            document.querySelectorAll('#' + form + '-form .form-nav').forEach(s => {
-                s.style.display = 'none';
-            });
-            
-            // Show success
-            document.getElementById(form + '-success').classList.add('show');
-            
-            // Scroll to success
-            document.getElementById(form + '-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        // Initialize
-        renderMines();
+        function showTab(tab) { document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active')); document.getElementById(tab + '-tab').classList.add('active'); document.querySelectorAll('.nav-btn').forEach(btn => { btn.classList.remove('active'); if (btn.textContent.trim() === 'Get Started' && tab !== 'onboard') { btn.style.background = 'linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%)'; btn.style.color = 'var(--cream)'; } }); event.target.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        function selectPath(path) { document.querySelectorAll('.onboard-path').forEach(p => p.classList.remove('active')); event.currentTarget.classList.add('active'); document.querySelectorAll('.onboard-form-container').forEach(f => f.classList.remove('active')); document.getElementById(path + '-form').classList.add('active'); setTimeout(() => { document.getElementById(path + '-form').scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100); }
+        function selectStria(status, element) { document.querySelectorAll('.stria-option').forEach(opt => opt.classList.remove('selected')); element.classList.add('selected'); const redirect = document.getElementById('stria-redirect'); const continueSection = document.getElementById('seller-continue'); if (status === 'no') { redirect.classList.add('show'); continueSection.style.display = 'none'; } else { redirect.classList.remove('show'); continueSection.style.display = 'block'; } }
+        function submitForm(form) { document.querySelectorAll('#' + form + '-form .form-header').forEach(s => s.style.display = 'none'); document.querySelectorAll('#' + form + '-form .form-group').forEach(s => s.style.display = 'none'); document.querySelectorAll('#' + form + '-form .form-row').forEach(s => s.style.display = 'none'); document.querySelectorAll('#' + form + '-form .form-nav').forEach(s => s.style.display = 'none'); document.querySelectorAll('#' + form + '-form .stria-check').forEach(s => s.style.display = 'none'); document.getElementById(form + '-success').classList.add('show'); document.getElementById(form + '-form').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     </script>
 </body>
 </html>
